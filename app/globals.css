@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bone: #F2EDE4;
+  --charcoal: #1A1C1B;
+  --forest: #2A3A2E;
+  --patrol: #5C6B55;
+  --flare: #D94F2A;
+  --brass: #B08D57;
+  --paper: #FAF7F0;
+  --dusk: #0F1210;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bone: var(--bone);
+  --color-charcoal: var(--charcoal);
+  --color-forest: var(--forest);
+  --color-patrol: var(--patrol);
+  --color-flare: var(--flare);
+  --color-brass: var(--brass);
+  --color-paper: var(--paper);
+  --color-dusk: var(--dusk);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bone: #F2EDE4;
+    --charcoal: #1A1C1B;
+  }
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bone);
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--dusk);
+    color: var(--bone);
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--flare);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+::selection {
+  background-color: var(--flare);
+  color: var(--bone);
+}
+
+/* Skip to content */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--flare);
+  color: var(--bone);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.1s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Flare pulse animation */
+@keyframes flare-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.flare-pulse {
+  animation: flare-pulse 1s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flare-pulse { animation: none; }
+}
+
+/* Dot drop animation for TwentyTwo viz */
+@keyframes dot-drop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Label mono style */
+.label-mono {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Measure utilities */
+.measure-body { max-width: 65ch; }
+.measure-narrow { max-width: 52ch; }
+
+/* Placeholder / dashed card */
+.placeholder-card {
+  border: 1.5px dashed color-mix(in srgb, var(--patrol) 55%, transparent);
+  border-radius: 3px;
+  padding: 2rem;
+}
+
+/* Phase Two card */
+.phase-card {
+  border: 1px solid color-mix(in srgb, var(--brass) 50%, transparent);
+  border-radius: 3px;
+  padding: 2rem 2.5rem;
+}
+
+/* Content warning */
+.content-warning {
+  border: 1px solid color-mix(in srgb, var(--patrol) 40%, transparent);
+  background: color-mix(in srgb, var(--patrol) 6%, transparent);
+  border-radius: 3px;
+  padding: 0.875rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Referral disclaimer */
+.referral-disclaimer {
+  border: 1px solid color-mix(in srgb, var(--patrol) 35%, transparent);
+  border-radius: 3px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+
+/* Section rule */
+.section-rule {
+  border-top: 1px solid color-mix(in srgb, var(--charcoal) 14%, transparent);
+}
+@media (prefers-color-scheme: dark) {
+  .section-rule {
+    border-top-color: color-mix(in srgb, var(--bone) 14%, transparent);
+  }
+}
+
+/* Mega-menu overlay */
+.mega-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--charcoal) 55%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.mega-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }

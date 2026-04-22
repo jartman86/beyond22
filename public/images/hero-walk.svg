@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0D1510"/>
+      <stop offset="60%" stop-color="#1A2B1E"/>
+      <stop offset="100%" stop-color="#2A3A2E"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2A3A2E"/>
+      <stop offset="100%" stop-color="#0F1210"/>
+    </linearGradient>
+    <linearGradient id="path-grad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#3A4A3A" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#1A2B1E" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="light" cx="50%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#4A5A3E" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0F1210" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur-trees">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+
+  <!-- Atmospheric light -->
+  <ellipse cx="960" cy="320" rx="600" ry="400" fill="url(#light)"/>
+
+  <!-- Far tree line (blurred) -->
+  <g filter="url(#blur-trees)" opacity="0.5">
+    <rect x="0" y="380" width="60" height="300" rx="4" fill="#1A2B1E"/>
+    <rect x="50" y="350" width="70" height="330" rx="4" fill="#1A2B1E"/>
+    <rect x="110" y="370" width="50" height="310" rx="4" fill="#1A2B1E"/>
+    <rect x="155" y="340" width="80" height="340" rx="4" fill="#1A2B1E"/>
+    <rect x="230" y="360" width="55" height="320" rx="4" fill="#1A2B1E"/>
+    <rect x="280" y="345" width="65" height="335" rx="4" fill="#1A2B1E"/>
+    <rect x="340" y="375" width="50" height="305" rx="4" fill="#1A2B1E"/>
+    <rect x="385" y="355" width="70" height="325" rx="4" fill="#1A2B1E"/>
+    <rect x="450" y="365" width="60" height="315" rx="4" fill="#1A2B1E"/>
+    <!-- Right side -->
+    <rect x="1410" y="370" width="60" height="310" rx="4" fill="#1A2B1E"/>
+    <rect x="1465" y="345" width="75" height="335" rx="4" fill="#1A2B1E"/>
+    <rect x="1535" y="360" width="55" height="320" rx="4" fill="#1A2B1E"/>
+    <rect x="1585" y="348" width="70" height="332" rx="4" fill="#1A2B1E"/>
+    <rect x="1650" y="372" width="50" height="308" rx="4" fill="#1A2B1E"/>
+    <rect x="1695" y="352" width="65" height="328" rx="4" fill="#1A2B1E"/>
+    <rect x="1755" y="367" width="58" height="313" rx="4" fill="#1A2B1E"/>
+    <rect x="1808" y="342" width="72" height="338" rx="4" fill="#1A2B1E"/>
+    <rect x="1875" y="360" width="55" height="320" rx="4" fill="#1A2B1E"/>
+  </g>
+
+  <!-- Mid ground -->
+  <rect x="0" y="600" width="1920" height="480" fill="url(#ground)"/>
+
+  <!-- Road / path — converging perspective -->
+  <polygon points="960,520 800,1080 1120,1080" fill="url(#path-grad)" opacity="0.7"/>
+  <polygon points="960,500 870,1080 1050,1080" fill="#2A3A2E" opacity="0.3"/>
+
+  <!-- Road edges — subtle lines -->
+  <line x1="960" y1="520" x2="780" y2="1080" stroke="#3A4A3A" stroke-width="1" opacity="0.4"/>
+  <line x1="960" y1="520" x2="1140" y2="1080" stroke="#3A4A3A" stroke-width="1" opacity="0.4"/>
+
+  <!-- Foreground trees (left) -->
+  <rect x="80" y="280" width="90" height="800" rx="5" fill="#0F1A12"/>
+  <rect x="0" y="260" width="70" height="820" rx="5" fill="#0D1510"/>
+  <rect x="180" y="320" width="65" height="760" rx="5" fill="#111D14"/>
+  <rect x="260" y="350" width="55" height="730" rx="5" fill="#0F1A12" opacity="0.8"/>
+
+  <!-- Foreground trees (right) -->
+  <rect x="1750" y="280" width="90" height="800" rx="5" fill="#0F1A12"/>
+  <rect x="1850" y="260" width="70" height="820" rx="5" fill="#0D1510"/>
+  <rect x="1675" y="320" width="65" height="760" rx="5" fill="#111D14"/>
+  <rect x="1605" y="350" width="55" height="730" rx="5" fill="#0F1A12" opacity="0.8"/>
+
+  <!-- Figure (back to camera, walking the road) -->
+  <g transform="translate(930, 470)">
+    <!-- Pack/silhouette -->
+    <rect x="-10" y="-55" width="40" height="18" rx="3" fill="#0A0E0B"/>
+    <!-- Body -->
+    <rect x="-7" y="-38" width="34" height="45" rx="2" fill="#0A0E0B"/>
+    <!-- Head -->
+    <ellipse cx="10" cy="-48" rx="10" ry="11" fill="#0A0E0B"/>
+    <!-- Legs -->
+    <rect x="-5" y="7" width="12" height="38" rx="2" fill="#0A0E0B"/>
+    <rect x="11" y="7" width="12" height="35" rx="2" fill="#0A0E0B"/>
+    <!-- Arms -->
+    <rect x="-18" y="-30" width="10" height="32" rx="2" fill="#0A0E0B"/>
+    <rect x="28" y="-30" width="10" height="30" rx="2" fill="#0A0E0B"/>
+  </g>
+
+  <!-- Vignette overlay -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="transparent"/>
+    <stop offset="100%" stop-color="#0F1210" stop-opacity="0.7"/>
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+
+  <!-- Placeholder label (will be replaced by real photo) -->
+  <text x="960" y="1050" font-family="monospace" font-size="13" fill="#3A4A3A" text-anchor="middle" opacity="0.5">
+    PLACEHOLDER — Replace with hero-walk.jpg
+  </text>
+</svg>
